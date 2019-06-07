@@ -5,44 +5,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>JS stuff</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-    <!-- <style>
-        #draggable { width: 150px; height: 150px; padding: 0.5em; }
-        </style>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <style>
-            #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
-            #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
-        </style> -->
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            margin: 10px;
+            float: left;
+            border: 3px solid red;
+        }
+
+        .ui-state-highlight {
+            background-color: yellow;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- <div id="draggable" class="ui-widget-content">
-        <p>Drag me to my target</p>
-      </div>
-       
-      <div id="droppable" class="ui-widget-header">
-        <p>Drop here</p>
-      </div> -->
-    
-    <!-- <p id="p1" class="changable-paragraph">foo</p>
-    <p id="p2" class="changable-paragraph">bar</p>
-    <button id="btn1">Button1</button>
-    <button>Button2</button> -->
+    <p id="p1" class="changable">foo</p>
+    <p id="p2" class="changable">bar</p>
+    <p id="p3" class="changable">opa</p>
+    <p class="changable">kuku</p>
 
-    <a data-fancybox="gallery" href="http://amazingcatcollection.com/images/cats/tubfortwo.jpg">
-        <img src="http://amazingcatcollection.com/images/cats/tubfortwo.jpg"></a>
-    <!-- <a data-fancybox="gallery" href="https://i.ytimg.com/vi/YiKE3HzDEFI/hqdefault.jpg">
-        <img src="https://i.ytimg.com/vi/YiKE3HzDEFI/hqdefault.jpg"></a> -->
+    <button id="btn1">Button 1</button>
+    <button id="btn2">Button 2</button>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <a data-fancybox="gallery" href="C:\Users\Nils\Documents\WEB_darbi\Gala_darbs\Images\cat1.jpg">
+        <img src="C:\Users\Nils\Documents\WEB_darbi\Gala_darbs\Images\cat1.jpg">
+    </a> -->
+    <!--
+        img tags ieladejas uzreiz brauzerii, bet href ieladejas, kas uz vina uzspiez. 
+    -->
+    <!-- <a data-fancybox="gallery" href="C:\Users\Nils\Documents\WEB_darbi\Gala_darbs\Images\cat2.jpg">
+        <img src="C:\Users\Nils\Documents\WEB_darbi\Gala_darbs\Images\cat2.jpg">
+    </a> -->
+
+    <div id="nice1">Foo</div>
+    <div id="nice2">Bar</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="main.js"></script>
+    <script>
+        $('#nice1').draggable({
+            revert: 'invalid'
+        });
+        $("#nice2").droppable({
+            over: function (event, ui) {
+                $(this)
+                    .addClass("ui-state-highlight")
+                    .text('URA!!!');
+            }
+        });
 
-
+    </script>
 </body>
 
 </html>
